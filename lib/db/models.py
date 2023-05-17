@@ -1,6 +1,7 @@
 #this file will contain db tables, operations & data validation
 
 from sqlalchemy import ForeignKey, Column, Integer, String, MetaData
+from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
 
 convention = {
@@ -39,11 +40,10 @@ class Achievement(Base):
 class UserAchievement(Base):
     __tablename__ = 'user_achievements'
 
-    id = Column(Integer(), primary_key=True)
-    user_id = Column(Integer(), ForeignKey('users.id'))
-    achievement_id = Column(Integer(), ForeignKey('achievements.id'))
+    user_id = Column(Integer(), ForeignKey('users.id'), primary_key=True)
+    achievement_id = Column(Integer(), ForeignKey('achievements.id'), primary_key=True)
+    user = relationship(User)
+    achievement = relationship(Achievement)
 
     def __repr__(self):
-        return f'UserAchievement {self.id}: ' \
-            + f'{self.user_id} ' \
-            + f'{self.achievement_id} '
+        return f'UserAchievement(user_id={self.user_id}, achievement_id={self.achievement_id})'
