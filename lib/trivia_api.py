@@ -13,12 +13,12 @@ def fetch_trivia_questions(category=None, difficulty=None):
     questions = []
     for result in results:
         question = result['question']
-        options = result['options']
-        answer = result['answer']
+        incorrect_answers = result['incorrect_answers']
+        correct_answer = result['correct_answer']
         questions.append({
             'question': question,
-            'options': options,
-            'answer': answer
+            'incorrect_answers': incorrect_answers,
+            'correct_answer': correct_answer
         })
 
     return questions
