@@ -1,3 +1,4 @@
+THIS IS A TEST
 # Phase 3 CLI Project Template
 
 ## Learning Goals
