@@ -1,5 +1,3 @@
-#this file will contain db tables, operations & data validation
-
 from sqlalchemy import ForeignKey, Column, Integer, String, MetaData
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
