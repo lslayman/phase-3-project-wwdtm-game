@@ -8,4 +8,17 @@ def fetch_trivia_questions(category=None, difficulty=None):
     }
     response = requests.get(url, params=params)
     data = json.loads(response.text)
-    return data['results']
+    results = data['results']
+
+    questions = []
+    for result in results:
+        question = result['question']
+        options = result['options']
+        answer = result['answer']
+        questions.append({
+            'question': question,
+            'options': options,
+            'answer': answer
+        })
+
+    return questions
