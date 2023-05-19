@@ -1,5 +1,6 @@
 from trivia_api import *
+from helpers import *
 
-questions = fetch_trivia_questions()
+questions = QuestionModel
 
 print(questions)
